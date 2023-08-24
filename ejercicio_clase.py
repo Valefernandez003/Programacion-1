@@ -12,11 +12,14 @@ def main():
          return
         #segun caso con los dias de la semana
         if dia_semana == "lunes":
-            procesar_examen()
+            examen = input("se tomo examen?")
+            procesar_examen(examen)
         elif dia_semana== "martes":
-           procesar_examen()
+             examen = input("se tomo examen?")
+           procesar_examen(examen)
         elif dia_semana=="miercoles":
-           procesar_examen()
+         examen = input("se tomo examen?")
+           procesar_examen(examen)
         elif dia_semana== "jueves":
            practica_hablada()
         elif dia_semana== "viernes":
@@ -24,10 +27,12 @@ def main():
     except ValueError:  
         print("ocurrió un error")
 def procesar_examen(): #funcion que saque el porcentaje de alumnos aprobados
+    if examen == "si":
     alumnos = int(input("ingrese la cantidad de alumnos del curso "))
     aprobados=int(input("ingrese la cantidad de alumnos aprobados "))
     porcentaje = (aprobados/alumnos)*100
     print(f"el porcentaje de alumnos aprobados es: {porcentaje}%")
+    pass
 def practica_hablada(): #funcion que dice si fue mas de el 50% de la clase
     asistencia= float(input("ingrese el porcentaje de asistencia sin '%': "))
     if asistencia > 50:  
