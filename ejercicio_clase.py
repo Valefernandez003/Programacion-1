@@ -2,7 +2,7 @@ def main():
     try:
         #pedimos al usuario que ingrese la fecha
         fecha_actual = input("Ingrese la fecha en el siguiente formato: Día,DD/MM: ")
-        dia_semana, fecha = fecha_actual.split(',')
+        dia_semana, fecha = map(str.strip, fecha_actual.split(','))
         dia, mes = fecha.split('/')
         dia_semana = dia_semana.lower()
         dia_semana_valido = ["lunes", "martes", "miercoles", "jueves", "viernes"]
