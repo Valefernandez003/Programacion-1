@@ -10,3 +10,4 @@ moto1.stop_engine() #debe avisar que el motor ya está detenido
 
 moto1.price=1500000 #precio de la moto 1
 print(f"el precio de la moto {moto1.brand} {moto1.model} es de: {moto1.price}")
+print(f"El precio de la motocicleta {motorbike_1.brand}, {motorbike_1.model} es de: {motorbike_1.consulta_price()}")
