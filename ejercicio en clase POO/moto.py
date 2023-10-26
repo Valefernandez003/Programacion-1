@@ -68,3 +68,5 @@ class Motorbike:
             self.engine = False
         else:
             print("El motor ya estaba apagado")
+    def consulta_price(self):
+        return self.price
