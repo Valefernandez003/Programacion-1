@@ -113,15 +113,89 @@ for diagonal_element in reverse_diagonal:
     print(string , diagonal_element)
     string += "  "
 
+
 # 11)_Escribir un programa que guarde en una variable el diccionario 
 # {'Euro':'€', 'Dollar':'$', 'Yen':'¥'},pregunte al usuario por una divisa y muestre su símbolo
 #  o un mensaje de aviso si la divisa no está en el diccionario.
+
+foreign_exchange = {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
+
+while True:
+    try:
+        exchange = input("Ingrese una divisa: ")
+        if exchange in foreign_exchange:
+            print("Simbolo de su divisa: ",foreign_exchange[exchange])
+        else:
+            print("Esa divisa no se encuentra en el diccionario")    
+        time.sleep(3)    
+        break    
+    except(ValueError,TypeError,KeyError):
+        print("Hubo un error, intente de nuevo..")
+        continue
 
 # 12)_Escribir un programa que pregunte al usuario su nombre, edad, dirección y teléfono y lo
 # guarde en un diccionario.Después debe mostrar por pantalla el mensaje ‘<nombre> tiene <edad> 
 # años, vive en <dirección> y su número de teléfono es <teléfono>’.
 
+def phone_validator(phone_number):
+    if phone_number.isnumeric() and len(phone_number) == 8:
+        return True
+    return False
+
+def age_validator(age):
+    if age.isnumeric():
+        return True
+    return False
+
+name = input("Ingrese su nombre: ")
+valid_age = False
+while not valid_age:
+    age_input = input("Ingrese su edad: ")
+    if age_validator(age_input):
+        valid_age = True
+    else:
+        print("La edad ingresada es incorrecta.")
+
+address = input("Ingrese su dirección: ")
+valid_phone = False
+while not valid_phone:
+    phone_input = input("Ingrese su número de teléfono: ")
+    if phone_validator(phone_input):
+        valid_phone = True
+    else:
+        print("El número ingresado no es válido.")
+
+personal_information = {
+    "nombre": name,
+    "edad": int(age_input),
+    "dirección": address,
+    "teléfono": int(phone_input)
+}
+
+message = f"{personal_information['nombre']} tiene {personal_information['edad']} años, vive en {personal_information['dirección']} y su número de teléfono es {personal_information['teléfono']}."
+
+print(message)
+
 # 13)_Escribir un programa que guarde en un diccionario los precios de las frutas de la tabla,
 #  pregunte al usuario por una fruta, un número de kilos y muestre por pantalla el precio 
 # de ese número de kilos de fruta. Si la fruta no está en el diccionario debe mostrar un 
 # mensaje informando de ello.
+
+fruits = {
+    'manzana': 400,
+    'banana': 450,
+    'uva': 780,
+    'pera': 360,
+    'naranja': 530,
+    'pomelo': 700,
+    'mandarina': 460,
+}
+
+buy_fruit = input("Ingrese una fruta que desee comprar: ")
+if buy_fruit not in fruits:
+    print("No tenemos esa fruta.")
+else:
+    kg = float(input("¿Cuántos kilos quiere? "))
+    price_per_kg = fruits[buy_fruit]
+    total_price = price_per_kg * kg
+    print(f"El precio de {kg} kilos de {buy_fruit} es: {total_price}")
